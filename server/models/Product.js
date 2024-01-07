@@ -41,7 +41,7 @@ const productSchema = new mongoose.Schema({
         required: true,
     },
     productIsNew: {
-        type: Bolean,
+        type: Boolean,
         required: true,
     },
     stripeId: {
