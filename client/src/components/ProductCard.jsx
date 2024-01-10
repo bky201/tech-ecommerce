@@ -5,14 +5,18 @@ import React from 'react';
 const ProductCard = ({ product, loading }) => {
 	return (
 		<Skeleton isLoaded={!loading} _hover={{ size: 1.5 }}>
-			<Box 
-                _hover={{transform: 'scale(1.1)', transitionDuration: '0.5s'}}
-                borderWidth='1px'
-                overflow='hidden'
-                p='4'
-                shadow='md'
-            >
-				<Image />
+			<Box
+				_hover={{ transform: 'scale(1.1)', transitionDuration: '0.5s' }}
+				borderWidth='1px'
+				overflow='hidden'
+				p='4'
+				shadow='md'>
+				<Image
+					src={product.images[0]}
+					fallbackSrc='https://via.placeholder.com/150'
+					alt={product.name}
+					height='200px'
+				/>
 				{product.stock < 5 ? (
 					<Badge colorScheme='yellow'>only {product.stock} left</Badge>
 				) : product.stock < 1 ? (
@@ -39,7 +43,7 @@ const ProductCard = ({ product, loading }) => {
 						${product.price}
 					</Text>
 				</Flex>
-                <IconButton icon={<BiExpand size='20' />} colorScheme='cyan' size='sm'></IconButton>
+				<IconButton icon={<BiExpand size='20' />} colorScheme='cyan' size='sm'></IconButton>
 			</Box>
 		</Skeleton>
 	);
