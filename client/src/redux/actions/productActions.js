@@ -1,10 +1,10 @@
-import { setProducts, setLoading, setError, setPagination } from '../slices/product';
+import { setProducts, setLoading, setError, setPagination, setFavorites, setFavoritesToggle } from '../slices/product';
 import axios from 'axios';
 
 export const getProducts = (page, favouriteToggle) => async (dispatch) => {
 	dispatch(setLoading());
 	try {
-		const { data } = await axios.get(`/api/products`);
+		const { data } = await axios.get(`/api/products/${page}/${10}`);
 		const { products, pagination } = data;
 		dispatch(setProducts(products));
 		dispatch(setPagination(pagination));
