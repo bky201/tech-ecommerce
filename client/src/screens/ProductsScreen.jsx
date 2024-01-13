@@ -30,25 +30,25 @@ const ProductsScreen = () => {
 							</WrapItem>
 						))}
 					</Wrap>
-				
+
 					{!favoritesToggled && (
 						<Wrap spacing='10px' justify='center' p='5'>
-							<Button colorScheme='cyan' onClick={() => paginationButtonClick(1)}>
-								<ArrowLeftIcon />
-							</Button>
-							{Array.from(Array(pagination.totalPages), (e, i) => {
-								return (
-									<Button
-										colorScheme={pagination.currentPage === i + 1 ? 'cyan' : 'gray'}
-										key={i}
-										onClick={() => paginationButtonClick(i + 1)}>
-										{i + 1}
-									</Button>
-								);
-							})}
-							<Button colorScheme='cyan' onClick={() => paginationButtonClick(pagination.totalPages)}>
-								<ArrowRightIcon />
-							</Button>
+								<Button colorScheme='cyan' onClick={() => paginationButtonClick(1)}>
+									<ArrowLeftIcon />
+								</Button>
+								{Array.from(Array(pagination.totalPages), (e, i) => {
+									return (
+										<Button
+											colorScheme={pagination.currentPage === i + 1 ? 'cyan' : 'gray'}
+											key={i}
+											onClick={() => paginationButtonClick(i + 1)}>
+											{i + 1}
+										</Button>
+									);
+								})}
+								<Button colorScheme='cyan' onClick={() => paginationButtonClick(pagination.totalPages)}>
+									<ArrowRightIcon />
+								</Button>
 						</Wrap>
 					)}
 				</Box>
