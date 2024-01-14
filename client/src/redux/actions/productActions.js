@@ -55,13 +55,12 @@ export const toggleFavorites = (toggle) => async (dispatch, getState) => {
 	} = getState();
 
 	if (toggle) {
-		// const productsList = Array.from(products)
-		const filteredProducts = Array.from(products).filter((product) => favorites.includes(product._id));
+		const filteredProducts = products.filter((product) => favorites.includes(product._id));
 		dispatch(setFavoritesToggle(toggle));
 		dispatch(setProducts(filteredProducts));
 	} else {
 		dispatch(setFavoritesToggle(false));
-		dispatch(setProducts(1));
+		dispatch(getProducts(1));
 	}
 };
 
