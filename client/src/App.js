@@ -2,6 +2,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import ProductsScreen from './screens/ProductsScreen';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import LandingScreen from './screens/LandingScreen';
 import ProductScreen from './screens/ProductScreen';
 import CartScreen from './screens/CartScreen';
@@ -19,6 +20,7 @@ function App() {
 						<Route path='/cart' element={<CartScreen />} />
 					</Routes>
 				</main>
+				<Footer />
 			</Router>
 		</ChakraProvider>
 	);
