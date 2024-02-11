@@ -6,6 +6,7 @@ import cors from 'cors';
 
 // Routes
 import productRoutes from './routes/productRoutes.js';
+import userRoutes from './routes/userRoutes.js';
 
 connetToDatabase();
 const app = express();
@@ -13,13 +14,14 @@ app.use(express.json());
 app.use(cors());
 
 app.use('/api/products', productRoutes);
+app.use('/api/users', userRoutes);
 
 const port = 5000;
 
 app.get('/', (req, res) => {
-    res.send('Api is running ...');
+	res.send('Api is running ...');
 });
 
 app.listen(port, () => {
-    console.log(`Server runs on port ${port}`);
+	console.log(`Server runs on port ${port}`);
 });
