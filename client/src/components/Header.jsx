@@ -14,6 +14,7 @@ import {
 	AlertIcon,
 	AlertTitle,
 	Divider,
+	Image,
 	Menu,
 	MenuButton,
 	MenuDivider,
@@ -21,7 +22,6 @@ import {
 	MenuList,
 	Spacer,
 	useToast,
-	Image,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { BsPhoneFlip } from 'react-icons/bs';
@@ -35,17 +35,17 @@ import { toggleFavorites } from '../redux/actions/productActions';
 import { HamburgerIcon, CloseIcon, ChevronDownIcon } from '@chakra-ui/icons';
 import { TbShoppingCart } from 'react-icons/tb';
 import { logout } from '../redux/actions/userActions';
+import { MdOutlineAdminPanelSettings } from 'react-icons/md';
 import { FcGoogle } from 'react-icons/fc';
 import { googleLogout } from '@react-oauth/google';
 
-// import { MdOutlineAdminPanelSettings } from 'react-icons/md';
-
 const Links = [
-	{ name: 'Product', route: '/products' },
+	{ name: 'Products', route: '/products' },
 	{ name: 'Hot Deals', route: '/hot-deals' },
 	{ name: 'Contact', route: '/contact' },
 	{ name: 'Services', route: '/services' },
 ];
+
 const Header = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const dispatch = useDispatch();
@@ -70,9 +70,10 @@ const Header = () => {
 			isClosable: 'true',
 		});
 	};
+
 	return (
 		<>
-			<Box bg={mode('cyan.300', 'gray.900')} px='4'>
+			<Box bg={mode(`cyan.300`, 'gray.900')} px='4'>
 				<Flex h='16' alignItems='center' justifyContent='space-between'>
 					<Flex display={{ base: 'flex', md: 'none' }} alignItems='center'>
 						<IconButton
@@ -104,7 +105,7 @@ const Header = () => {
 					<HStack spacing='8' alignItems='center'>
 						<Box alignItems='center' display='flex' as={ReactLink} to='/'>
 							<Icon as={BsPhoneFlip} h='6' w='6' color={mode('black', 'yellow.200')} />
-							<Text as='b'>Tech Homes</Text>
+							<Text as='b'>Tech Lines</Text>
 						</Box>
 
 						<HStack as='nav' spacing='4' display={{ base: 'none', md: 'flex' }}>
@@ -132,6 +133,7 @@ const Header = () => {
 									</Text>
 								)}
 							</Box>
+
 							<ColorModeToggle />
 							{favoritesToggled ? (
 								<IconButton

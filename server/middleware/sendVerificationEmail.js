@@ -1,9 +1,9 @@
 import nodemailer from 'nodemailer';
-// urse jaaz yqhu felo
+// xpbj lecq zkyo sruc
 // mohammedbekry1@gmail.com
 // https://miracleio.me/snippets/use-gmail-with-nodemailer
 export const sendVerificationEmail = (token, email, name) => {
-    const html = `
+	const html = `
     <html>
         <body>
             <h3>Dear ${name}</h3>
@@ -14,11 +14,11 @@ export const sendVerificationEmail = (token, email, name) => {
     </html>
     `;
 
-    const transporter = nodemailer.createTransport({
+	const transporter = nodemailer.createTransport({
 		service: 'gmail',
 		auth: {
 			user: 'mohammedbekry1@gmail.com',
-			pass: 'urse jaaz yqhu felo',
+			pass: 'xpbj lecq zkyo sruc',
 		},
 	});
 
@@ -37,5 +37,4 @@ export const sendVerificationEmail = (token, email, name) => {
 			console.log(info.response);
 		}
 	});
-
-}
+};
